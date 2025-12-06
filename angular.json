@@ -20,10 +20,13 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
+           "assets": [
+              "src/assets",
+              "src/_redirects",
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/icons",
+                "output": "/assets/icons"
               }
             ],
             "styles": [
@@ -32,6 +35,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
