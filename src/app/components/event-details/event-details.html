@@ -1,190 +1,184 @@
-Modern Mobile-First Event Details
-<div class="bg-gray-50">
+<!-- Mobile App Event Creation -->
+<div class="bg-gray-50 min-h-screen pb-20">
   
-  <div class="max-w-lg mx-auto">
-    
-    <!-- Header Section -->
-    <div class="text-center mb-8">
-      <!-- <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+  <!-- App Header -->
+  <div class="px-4 py-4 border-gray-200">
+    <div class="flex items-center gap-3">
+      <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center active:scale-95 transition-all">
+        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
         </svg>
-      </div> -->
-      <h1 class="text-2xl font-bold text-gray-900 mb-2">Create Your Event</h1>
-      <p class="text-gray-600">Let's start with the basics</p>
-    </div>
-
-    <!-- Form Card -->
-    <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 mb-6">
-      
-      <!-- Event Name Input -->
-      <div class="mb-6">
-        <label class="block text-sm font-medium text-gray-900 mb-3">
-          What's your event called?
-        </label>
-        <div class="relative">
-          <input 
-            type="text" 
-            [(ngModel)]="eventName"
-            placeholder="Trip to Bali, Office Party..."
-            class="w-full px-4 py-4 text-base bg-gray-50 border-0 rounded-2xl focus:bg-white focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder:text-gray-400"
-          />
-          <div class="absolute right-4 top-1/2 -translate-y-1/2">
-            <svg *ngIf="eventName.trim()" class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Currency Selection -->
+      </button>
       <div>
-        <label class="block text-sm font-medium text-gray-900 mb-3">
-          Choose your currency
-        </label>
-        
-        <div class="grid grid-cols-3 gap-2">
+        <h1 class="text-lg font-bold text-gray-900">Create Event</h1>
+        <p class="text-xs text-gray-500">Let's get started</p>
+      </div>
+    </div>
+  </div>
 
-           <button 
-            type="button"
-            (click)="currency = 'AED'"
-            [class.ring-2]="currency === 'AED'"
-            [class.ring-indigo-600]="currency === 'AED'"
-            [class.bg-indigo-50]="currency === 'AED'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇦🇪</span>
-            <span class="text-xs font-semibold text-gray-900">AED</span>
-            <span class="text-xs text-gray-500">د.إ</span>
-          </button>
-
-          <button 
-            type="button"
-            (click)="currency = 'USD'"
-            [class.ring-2]="currency === 'USD'"
-            [class.ring-indigo-600]="currency === 'USD'"
-            [class.bg-indigo-50]="currency === 'USD'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇺🇸</span>
-            <span class="text-xs font-semibold text-gray-900">USD</span>
-            <span class="text-xs text-gray-500">$</span>
-          </button>
-
-          <button 
-            type="button"
-            (click)="currency = 'EUR'"
-            [class.ring-2]="currency === 'EUR'"
-            [class.ring-indigo-600]="currency === 'EUR'"
-            [class.bg-indigo-50]="currency === 'EUR'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇪🇺</span>
-            <span class="text-xs font-semibold text-gray-900">EUR</span>
-            <span class="text-xs text-gray-500">€</span>
-          </button>
-
-          <button 
-            type="button"
-            (click)="currency = 'GBP'"
-            [class.ring-2]="currency === 'GBP'"
-            [class.ring-indigo-600]="currency === 'GBP'"
-            [class.bg-indigo-50]="currency === 'GBP'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇬🇧</span>
-            <span class="text-xs font-semibold text-gray-900">GBP</span>
-            <span class="text-xs text-gray-500">£</span>
-          </button>
-
-          <button 
-            type="button"
-            (click)="currency = 'INR'"
-            [class.ring-2]="currency === 'INR'"
-            [class.ring-indigo-600]="currency === 'INR'"
-            [class.bg-indigo-50]="currency === 'INR'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇮🇳</span>
-            <span class="text-xs font-semibold text-gray-900">INR</span>
-            <span class="text-xs text-gray-500">₹</span>
-          </button>
-
-          <button 
-            type="button"
-            (click)="currency = 'JPY'"
-            [class.ring-2]="currency === 'JPY'"
-            [class.ring-indigo-600]="currency === 'JPY'"
-            [class.bg-indigo-50]="currency === 'JPY'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇯🇵</span>
-            <span class="text-xs font-semibold text-gray-900">JPY</span>
-            <span class="text-xs text-gray-500">¥</span>
-          </button>
-
-          <button 
-            type="button"
-            (click)="currency = 'CNY'"
-            [class.ring-2]="currency === 'CNY'"
-            [class.ring-indigo-600]="currency === 'CNY'"
-            [class.bg-indigo-50]="currency === 'CNY'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇨🇳</span>
-            <span class="text-xs font-semibold text-gray-900">CNY</span>
-            <span class="text-xs text-gray-500">¥</span>
-          </button>
-
-          <button 
-            type="button"
-            (click)="currency = 'AUD'"
-            [class.ring-2]="currency === 'AUD'"
-            [class.ring-indigo-600]="currency === 'AUD'"
-            [class.bg-indigo-50]="currency === 'AUD'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇦🇺</span>
-            <span class="text-xs font-semibold text-gray-900">AUD</span>
-            <span class="text-xs text-gray-500">$</span>
-          </button>
-
-          <button 
-            type="button"
-            (click)="currency = 'CAD'"
-            [class.ring-2]="currency === 'CAD'"
-            [class.ring-indigo-600]="currency === 'CAD'"
-            [class.bg-indigo-50]="currency === 'CAD'"
-            class="flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-100 hover:border-indigo-200 transition-all cursor-pointer"
-          >
-            <span class="text-2xl mb-1">🇨🇦</span>
-            <span class="text-xs font-semibold text-gray-900">CAD</span>
-            <span class="text-xs text-gray-500">$</span>
-          </button>
+  <div class="px-4 py-4">
+    
+    <!-- Event Name Input -->
+    <div class="mb-4">
+      <label class="block text-sm font-semibold text-gray-900 mb-2">
+        Event Name
+      </label>
+      <div class="relative">
+        <input 
+          type="text" 
+          [(ngModel)]="eventName"
+          placeholder="Trip to Bali, Office Party..."
+          class="w-full px-4 py-3.5 text-base bg-white border-2 border-gray-200 rounded-2xl focus:border-green-400 focus:ring-0 outline-none transition-all placeholder:text-gray-400"
+        />
+        <div class="absolute right-4 top-1/2 -translate-y-1/2">
+          <svg *ngIf="eventName.trim()" class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
         </div>
       </div>
-
     </div>
 
-    <!-- Continue Button -->
+    <!-- Currency Selection -->
+    <div class="mb-6">
+      <label class="block text-sm font-semibold text-gray-900 mb-2">
+        Currency
+      </label>
+      
+      <div class="grid grid-cols-3 gap-2.5">
+
+        <button 
+          type="button"
+          (click)="currency = 'AED'"
+          [class.border-green-400]="currency === 'AED'"
+          [class.bg-green-50]="currency === 'AED'"
+          [class.border-gray-200]="currency !== 'AED'"
+          [class.bg-white]="currency !== 'AED'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇦🇪</span>
+          <span class="text-xs font-bold text-gray-900">AED</span>
+        </button>
+
+        <button 
+          type="button"
+          (click)="currency = 'USD'"
+          [class.border-green-400]="currency === 'USD'"
+          [class.bg-green-50]="currency === 'USD'"
+          [class.border-gray-200]="currency !== 'USD'"
+          [class.bg-white]="currency !== 'USD'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇺🇸</span>
+          <span class="text-xs font-bold text-gray-900">USD</span>
+        </button>
+
+        <button 
+          type="button"
+          (click)="currency = 'EUR'"
+          [class.border-green-400]="currency === 'EUR'"
+          [class.bg-green-50]="currency === 'EUR'"
+          [class.border-gray-200]="currency !== 'EUR'"
+          [class.bg-white]="currency !== 'EUR'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇪🇺</span>
+          <span class="text-xs font-bold text-gray-900">EUR</span>
+        </button>
+
+        <button 
+          type="button"
+          (click)="currency = 'GBP'"
+          [class.border-green-400]="currency === 'GBP'"
+          [class.bg-green-50]="currency === 'GBP'"
+          [class.border-gray-200]="currency !== 'GBP'"
+          [class.bg-white]="currency !== 'GBP'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇬🇧</span>
+          <span class="text-xs font-bold text-gray-900">GBP</span>
+        </button>
+
+        <button 
+          type="button"
+          (click)="currency = 'INR'"
+          [class.border-green-400]="currency === 'INR'"
+          [class.bg-green-50]="currency === 'INR'"
+          [class.border-gray-200]="currency !== 'INR'"
+          [class.bg-white]="currency !== 'INR'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇮🇳</span>
+          <span class="text-xs font-bold text-gray-900">INR</span>
+        </button>
+
+        <button 
+          type="button"
+          (click)="currency = 'JPY'"
+          [class.border-green-400]="currency === 'JPY'"
+          [class.bg-green-50]="currency === 'JPY'"
+          [class.border-gray-200]="currency !== 'JPY'"
+          [class.bg-white]="currency !== 'JPY'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇯🇵</span>
+          <span class="text-xs font-bold text-gray-900">JPY</span>
+        </button>
+
+        <button 
+          type="button"
+          (click)="currency = 'CNY'"
+          [class.border-green-400]="currency === 'CNY'"
+          [class.bg-green-50]="currency === 'CNY'"
+          [class.border-gray-200]="currency !== 'CNY'"
+          [class.bg-white]="currency !== 'CNY'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇨🇳</span>
+          <span class="text-xs font-bold text-gray-900">CNY</span>
+        </button>
+
+        <button 
+          type="button"
+          (click)="currency = 'AUD'"
+          [class.border-green-400]="currency === 'AUD'"
+          [class.bg-green-50]="currency === 'AUD'"
+          [class.border-gray-200]="currency !== 'AUD'"
+          [class.bg-white]="currency !== 'AUD'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇦🇺</span>
+          <span class="text-xs font-bold text-gray-900">AUD</span>
+        </button>
+
+        <button 
+          type="button"
+          (click)="currency = 'CAD'"
+          [class.border-green-400]="currency === 'CAD'"
+          [class.bg-green-50]="currency === 'CAD'"
+          [class.border-gray-200]="currency !== 'CAD'"
+          [class.bg-white]="currency !== 'CAD'"
+          class="flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 active:scale-95 transition-all"
+        >
+          <span class="text-2xl mb-1">🇨🇦</span>
+          <span class="text-xs font-bold text-gray-900">CAD</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Action Bar -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-4 safe-area-bottom">
     <button 
       (click)="next()"
       [disabled]="!eventName.trim()"
-      class="w-full px-6 py-5 bg-indigo-600 text-white font-semibold text-lg rounded-2xl hover:bg-indigo-700 active:scale-[0.98] disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-all duration-200 shadow-lg shadow-indigo-600/20 disabled:shadow-none flex items-center justify-center gap-2"
+      class="w-full px-6 py-4 bg-gradient-to-br from-green-400 to-green-500 text-white font-bold text-base rounded-2xl hover:from-green-500 hover:to-green-600 active:scale-[0.98] disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-all shadow-lg shadow-green-500/25 disabled:shadow-none flex items-center justify-center gap-2"
     >
       <span>Continue</span>
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
       </svg>
     </button>
-
-    <!-- Skip Link -->
-    <!-- <div class="text-center mt-4">
-      <button type="button" class="text-sm text-gray-500 hover:text-gray-700">
-        Skip for now
-      </button>
-    </div> -->
-
   </div>
 
 </div>
